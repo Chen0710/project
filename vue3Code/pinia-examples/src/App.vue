@@ -3,8 +3,6 @@ import piniaExample from './components/pinia.vue'
 </script>
 
 <template>
-  <div>
-    <!-- pinia学习 -->
-    <piniaExample/>
-  </div>
+  <!-- <piniaExample></piniaExample> -->
+  <router-view></router-view>
 </template>

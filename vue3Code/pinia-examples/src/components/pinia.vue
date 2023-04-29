@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { useMainStore } from "../store";
+import { useMainStore } from "../store/index";
 import { storeToRefs } from 'pinia';
 export default {
   data() {
@@ -37,21 +37,25 @@ export default {
   },
   methods: {
     handleCountChange() {
+      this.$router.push({
+        path: '/piniaTest'
+      })
+      // console.log(this.mainCount, 'klkl')
       // 1.想要得到响应式数据，直接对mainStore中的数据进行操作
-      mainStore.count++;
+      // mainStore.count++;
       // 2.如果需要修改多个数据，使用$patch批量更新，有性能优化的效果
-      mainStore.$patch({
-        count: mainStore.count + 1,
-        foo: 'hello'
-      })
+      // mainStore.$patch({
+      //   count: mainStore.count + 1,
+      //   foo: 'hello'
+      // })
       // 3.$patch函数，传递一个函数，进行批量更新
-      mainStore.$patch(state => {
-        state.count ++;
-        state.foo = 'hello',
-        state.arr.push(4)
-      })
+      // mainStore.$patch(state => {
+      //   state.count ++;
+      //   state.foo = 'hello',
+      //   state.arr.push(4)
+      // })
       // 4.逻辑较多时，可封装到action中作处理
-      mainStore.changeState(10)
+      // mainStore.changeState(10)
     }
   }
 }
